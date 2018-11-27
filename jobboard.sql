@@ -1,80 +1,76 @@
--- MySQL dump 10.16  Distrib 10.1.19-MariaDB, for Win32 (AMD64)
+-- phpMyAdmin SQL Dump
+-- version 4.8.1
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost    Database: localhost
--- ------------------------------------------------------
--- Server version	10.1.19-MariaDB
+-- Host: 127.0.0.1
+-- Generation Time: Nov 27, 2018 at 10:08 PM
+-- Server version: 10.1.33-MariaDB
+-- PHP Version: 7.2.6
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `jobboard`
+--
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `applications`
 --
 
-DROP TABLE IF EXISTS `applications`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `applications` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `applicant_id` int(11) DEFAULT NULL,
   `vacancy_id` int(11) NOT NULL,
   `cover_letter` text,
   `resume` varchar(255) DEFAULT NULL,
-  `created` datetime NOT NULL,
-  PRIMARY KEY (`id`)
+  `created` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `applications`
 --
 
-LOCK TABLES `applications` WRITE;
-/*!40000 ALTER TABLE `applications` DISABLE KEYS */;
-/*!40000 ALTER TABLE `applications` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `applications` (`id`, `applicant_id`, `vacancy_id`, `cover_letter`, `resume`, `created`) VALUES
+(2, 3, 2, NULL, NULL, '0000-00-00 00:00:00'),
+(3, 3, 2, NULL, NULL, '0000-00-00 00:00:00'),
+(4, 3, 2, NULL, NULL, '0000-00-00 00:00:00'),
+(5, 3, 2, NULL, NULL, '0000-00-00 00:00:00'),
+(6, 3, 2, NULL, NULL, '0000-00-00 00:00:00'),
+(7, 3, 2, NULL, NULL, '0000-00-00 00:00:00'),
+(8, 3, 2, NULL, NULL, '0000-00-00 00:00:00'),
+(9, 3, 1, NULL, NULL, '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `categories`
 --
 
-DROP TABLE IF EXISTS `categories`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `categories` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `name` varchar(150) NOT NULL,
-  `description` text,
-  PRIMARY KEY (`id`)
+  `description` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `categories`
---
-
-LOCK TABLES `categories` WRITE;
-/*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-/*!40000 ALTER TABLE `categories` ENABLE KEYS */;
-UNLOCK TABLES;
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `companies`
 --
 
-DROP TABLE IF EXISTS `companies`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `companies` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `name` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci,
   `logo` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -82,34 +78,31 @@ CREATE TABLE `companies` (
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `address` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `phonenumber` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `website` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `website` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `companies`
 --
 
-LOCK TABLES `companies` WRITE;
-/*!40000 ALTER TABLE `companies` DISABLE KEYS */;
-INSERT INTO `companies` VALUES (14,'Mark Muthii','bbnbnbnb','Dummy','maina.njoroge@gmail.com','$2y$10$JQJMtuHlQuB0Nqp.SpmV3.OQa4UQOn44QHmgmCskVPNdMU4J6uyl6','30178','772219258','https://mark.muthii.me');
-/*!40000 ALTER TABLE `companies` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `companies` (`id`, `name`, `description`, `logo`, `email`, `password`, `address`, `phonenumber`, `website`) VALUES
+(14, 'Mark Muthii', 'Blah Blah', 'Dummy', 'mark@mark.com', '$2y$10$PBDtQTVTihzubm1a23KAXOgQEEq9H6cMxw/TfEoBg/XG/rInnI4X.', '30178', '772219258', 'https://k.com'),
+(16, 'Mark Muthii', 'bbnbnbnb', 'Dummy', 'maina.njoroge@gmail.com', '$2y$10$JQJMtuHlQuB0Nqp.SpmV3.OQa4UQOn44QHmgmCskVPNdMU4J6uyl6', '30178', '772219258', 'https://mark.muthii.me');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `first_name` varchar(50) DEFAULT NULL,
   `last_name` varchar(50) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `phonenumber` varchar(255) DEFAULT NULL,
+  `address` varchar(255) NOT NULL,
+  `zip` varchar(10) NOT NULL,
   `username` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `role` varchar(10) DEFAULT NULL,
@@ -117,30 +110,24 @@ CREATE TABLE `users` (
   `keywords` text,
   `qualifications` text,
   `experience` text,
-  `resume` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `resume` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Mark','Muthii','mark@muthii.me','772219258','mark','$2y$10$Fn2pCG1svzDbv29iSjtOA.52U4DX2Mmb7WYrFkNWNEMif.Fboz.sq','jobseeker',NULL,NULL,NULL,NULL,NULL),(2,'Kram','Aniam ','mark@muthii.mee','772219258','markm','$2y$10$MQuXwjAR.ZW4YZVvw.zlYuSndzWx9ey9xw/1toUg6IE65Acgs8nh6','jobseeker',NULL,NULL,NULL,NULL,NULL);
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `phonenumber`, `address`, `zip`, `username`, `password`, `role`, `created`, `keywords`, `qualifications`, `experience`, `resume`) VALUES
+(3, 'Mark', 'Muthii', 'mark@muthii.me', '772219258', '', '', 'mark', '$2y$10$RhZK9rwZ.CQMWR5h9g1N/.RzY4dHmHnB5BR4H3iwo7fq63JGdWDXq', 'jobseeker', NULL, NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `vacancies`
 --
 
-DROP TABLE IF EXISTS `vacancies`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `vacancies` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `description` text,
   `perks` text,
@@ -153,28 +140,86 @@ CREATE TABLE `vacancies` (
   `type` varchar(255) DEFAULT NULL,
   `keywords` text,
   `salary` varchar(255) DEFAULT NULL,
-  `category` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `category` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `vacancies`
 --
 
-LOCK TABLES `vacancies` WRITE;
-/*!40000 ALTER TABLE `vacancies` DISABLE KEYS */;
-INSERT INTO `vacancies` VALUES (1,'Junior Developer','Very good',NULL,NULL,'14',0,NULL,'Kenya','3 years','part_time','[\"it\",\" comp\",\" robotics\"]','{\"min\":\"5000\",\"max\":\"10000\"}',NULL),(2,'Senior Dev','Senior dev!!',NULL,NULL,'14',0,NULL,'Rwanda','5 years','remote','[\"computer science\",\" dbit\",\" dev\"]','{\"min\":\"100\",\"max\":\"300\"}',NULL);
-/*!40000 ALTER TABLE `vacancies` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+INSERT INTO `vacancies` (`id`, `title`, `description`, `perks`, `how_to_apply`, `company_id`, `status`, `created`, `location`, `experience`, `type`, `keywords`, `salary`, `category`) VALUES
+(1, 'Junior Developer', 'Very good', NULL, NULL, '14', 0, NULL, 'Kenya', '3 years', 'part_time', '[\"it\",\" comp\",\" robotics\"]', '{\"min\":\"5000\",\"max\":\"10000\"}', NULL),
+(2, 'Senior Dev', 'Senior dev!!', NULL, NULL, '14', 0, NULL, 'Rwanda', '5 years', 'remote', '[\"computer science\",\" dbit\",\" dev\"]', '{\"min\":\"100\",\"max\":\"300\"}', NULL);
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `applications`
+--
+ALTER TABLE `applications`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `companies`
+--
+ALTER TABLE `companies`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `vacancies`
+--
+ALTER TABLE `vacancies`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `applications`
+--
+ALTER TABLE `applications`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `companies`
+--
+ALTER TABLE `companies`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `vacancies`
+--
+ALTER TABLE `vacancies`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2018-08-29 11:16:18
