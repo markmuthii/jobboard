@@ -1,1 +1,7 @@
 config/global.php
+candidate-listing.php
+company-dashboard.php
+company-listing.php
+company.php
+404.php
+contact.php
