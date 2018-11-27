@@ -1,5 +1,5 @@
-CAR RENTAL SYSTEM
-=================
+JOB BOARD SYSTEM
+================
 
 To get started, clone the repo
 
