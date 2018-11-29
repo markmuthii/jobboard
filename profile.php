@@ -3,7 +3,7 @@
 // error_reporting(0);
 session_start();
 
-if (!isset($_SESSION["type"]) || $_SESSION["type"] == "company") {
+if (!isset($_SESSION["type"])) {
   header('Location: ./');
   exit();
 }else{
