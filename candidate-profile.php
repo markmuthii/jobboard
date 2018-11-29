@@ -11,7 +11,7 @@ if(isset($_GET["aid"])){
 }
 $user = get_user_information($user_id);
 
-// var_dump($user);
+// var_dump($user_id);
 ?>
 	  <!-- jp Tittle Wrapper Start -->
     <div class="jp_tittle_main_wrapper">
@@ -45,9 +45,9 @@ $user = get_user_information($user_id);
 				<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 					<div class="jp_cp_left_side_wrapper">
 						<div class="jp_cp_left_pro_wallpaper">
-							<img src="images/content/cp1.png" alt="profile_img">
-							<h2><?php echo $user["first_name"] . " " . $user["last_name"] ?></h2>
-							<p>UI/UX Designer in Dewas</p>
+							<!-- <img src="images/content/cp1.png" alt="profile_img"> -->
+							<h2 style="margin-bottom: 20px"><?php echo $user["first_name"] . " " . $user["last_name"] ?></h2>
+							<!-- <p>UI/UX Designer in Dewas</p> -->
 							<ul>
 								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -56,7 +56,7 @@ $user = get_user_information($user_id);
 						</div>
 						<div class="jp_cp_rd_wrapper">
 							<ul>
-								<li><a href="#"><i class="fa fa-download"></i> 
+								<li><a href="<?php echo HOME_URL . "resumes/" . $user["resume"] ?>"><i class="fa fa-download"></i> 
                 &nbsp;
                 <?php if(isset($_SESSION["type"]) && $_SESSION["type"] == "company"): ?>
                 Download
@@ -65,7 +65,7 @@ $user = get_user_information($user_id);
                 <?php endif ?>
                 Resume</a></li>
                 <?php if(isset($_SESSION["type"]) && $_SESSION["type"] == "company"): ?>
-								<li><a href="#"><i class="fa fa-phone"></i> &nbsp;Contact candidate</a></li>
+								<li><a href="tel:<?php echo $user["phonenumber"]?>"><i class="fa fa-phone"></i> &nbsp;Contact candidate</a></li>
                 <?php else:?>
                 <li><a href="javascript:0" onclick="showEditForm()"><i class="fa fa-pencil"></i> &nbsp;Edit Profile</a></li>
                 <?php endif ?>
@@ -90,9 +90,7 @@ $user = get_user_information($user_id);
                           <td class="td-w10">:</td>
                           <td class="td-w65">
                             <?php 
-                            if($user["address"]) echo $user["address"]; else echo "N/A";
-                            if(isset($_SESSION["user_id"])) echo " - Please edit";
-                            ?>
+                            if($user["address"]) echo $user["address"]; else {echo "N/A"; if(isset($_SESSION["user_id"])) echo " - Please edit";}?>
                           </td>
                       </tr>
                       <tr>
@@ -100,9 +98,7 @@ $user = get_user_information($user_id);
                           <td class="td-w10">:</td>
                           <td class="td-w65">
                             <?php 
-                            if($user["zip"]) echo $user["zip"]; else echo "N/A";
-                            if(isset($_SESSION["user_id"])) echo " - Please edit";
-                            ?>
+                            if($user["zip"]) echo $user["zip"]; else {echo "N/A"; if(isset($_SESSION["user_id"])) echo " - Please edit";}?>
                           </td>
                       </tr>
                       <tr>
@@ -125,9 +121,7 @@ $user = get_user_information($user_id);
                   <h2>Qualifications</h2>
                   <p>
                   <?php 
-                  if($user["qualifications"]) echo $user["qualifications"]; else echo "N/A";
-                  if(isset($_SESSION["user_id"])) echo " - Please edit";
-                  ?>
+                  if($user["qualifications"]) echo $user["qualifications"]; else {echo "N/A"; if(isset($_SESSION["user_id"])) echo " - Please edit";}?>
                   </p>
                 </div>
               </div>
@@ -137,9 +131,7 @@ $user = get_user_information($user_id);
                   <h2>Experience</h2>
                   <p>
                   <?php 
-                  if($user["experience"]) echo $user["experience"]; else echo "N/A";
-                  if(isset($_SESSION["user_id"])) echo " - Please edit";
-                  ?>
+                  if($user["experience"]) echo $user["experience"]; else {echo "N/A"; if(isset($_SESSION["user_id"])) echo " - Please edit";}?>
                   </p>
                 </div>
               </div>
@@ -185,7 +177,7 @@ $user = get_user_information($user_id);
                     <label for="experience">Experience</label>
                     <textarea name="experience" id="experience"><?php echo $user["experience"] ?></textarea>
                   </div>
-                  <input type="text" name="userid" id="edituserid" value="<?php echo $_SESSION["userid"] ?>">
+                  <input type="hidden" name="userid" id="edituserid" value="<?php echo $_SESSION["user_id"] ?>">
                   <!--Form Group-->
                 </div>
                 <div class="login_btn_wrapper register_btn_wrapper login_wrapper ">

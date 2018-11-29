@@ -58,7 +58,7 @@ include "includes/header.php";
             <ul>
               <li>
                 <i class="fa fa-globe"></i>&nbsp;&nbsp;
-                <a href="#"><?php echo $job["website"] ?></a>
+                <a href="<?php echo $job["website"] ?>"><?php echo $job["website"] ?></a>
               </li>
             </ul>
           </div>

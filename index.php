@@ -1,5 +1,6 @@
 <?php
 error_reporting(0);
+session_start();
 include "api/jobs.php";
 include "includes/header.php";
 $all_jobs = get_all_jobs();
@@ -22,7 +23,7 @@ $jobs_number = $all_jobs->num_rows;
           </div>
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="jp_banner_main_jobs_wrapper">
-              <div class="jp_banner_main_jobs">
+              <!-- <div class="jp_banner_main_jobs">
                 <ul>
                   <li>
                     <i class="fa fa-tags"></i> Trending Keywords :</li>
@@ -45,7 +46,7 @@ $jobs_number = $all_jobs->num_rows;
                     <a href="#">call center</a>
                   </li>
                 </ul>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -59,9 +60,14 @@ $jobs_number = $all_jobs->num_rows;
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <div class="jp_listing_heading_wrapper">
+          <?php if($_SESSION["type"] == "user"): ?>
             <h2>We found
               <span><?php echo $jobs_number; ?></span> Matches for you.
             </h2>
+          <?php else: ?>
+            <h2>The following opportunities are currently available
+            </h2>
+          <?php endif ?>
           </div>
         </div>
         <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">

@@ -53,7 +53,7 @@ include 'includes/header.php';
 									<div class="jp_regiter_top_heading">
 										<p>Fields with * are mandatory </p>
 									</div>
-                  <form name="userRegForm" id="userRegForm">
+                  <form name="userRegForm" id="userRegForm" enctype="multipart/form-data">
                     <div class="row">
                       <!--Form Group-->
                       <div class="form-group col-md-6 col-sm-6 col-xs-12">
@@ -82,8 +82,8 @@ include 'includes/header.php';
                       <input type="hidden" required id="userrole" name="userrole" id="role" value="jobseeker">
                       <!--Form Group-->
                       <div class="form-group col-md-6 col-sm-6 col-xs-12 custom_input">
-                        <input type="file" id="userresume" name="resume">
-                        <p>DOC, DOCX, RTF, PDF - 300KB MAX PREFERRED CV FORMAT - DOCX FILE</p>
+                        <label for="userresume">Resume</label>
+                        <input type="file" id="userresume" name="resume" required>
                       </div>
                     </div>
                     <div class="login_btn_wrapper register_btn_wrapper login_wrapper ">

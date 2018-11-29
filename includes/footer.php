@@ -1,7 +1,7 @@
 <!-- jp Newsletter Wrapper Start -->
 <div class="jp_main_footer_img_wrapper">
     <div class="jp_newsletter_img_overlay_wrapper"></div>
-    <div class="jp_newsletter_wrapper">
+    <!-- <div class="jp_newsletter_wrapper">
       <div class="container">
         <div class="row">
           <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
@@ -18,7 +18,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- jp Newsletter Wrapper End -->
     <!-- jp footer Wrapper Start -->
     <div class="jp_footer_main_wrapper">
@@ -34,7 +34,7 @@
             </div>
           </div>
           <div class="jp_footer_three_sec_main_wrapper">
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
               <div class="jp_footer_first_cont_wrapper">
                 <div class="jp_footer_first_cont">
                   <h2>Who We Are</h2>
@@ -51,81 +51,49 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
               <div class="jp_footer_candidate_wrapper jp_footer_candidate_wrapper2">
                 <div class="jp_footer_candidate">
-                  <h2>For candidate</h2>
+                  <h2>For candidates</h2>
                   <ul>
                     <li>
-                      <a href="#">
-                        <i class="fa fa-caret-right" aria-hidden="true"></i> Add a Resume</a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i class="fa fa-caret-right" aria-hidden="true"></i> candidate Dashboard</a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i class="fa fa-caret-right" aria-hidden="true"></i> Past Applications</a>
+                      <a href="dashboard.php">
+                        <i class="fa fa-caret-right" aria-hidden="true"></i> Candidate Dashboard</a>
                     </li>
                     <li>
                       <a href="#">
                         <i class="fa fa-caret-right" aria-hidden="true"></i> Job Alerts</a>
                     </li>
                     <li>
-                      <a href="#">
-                        <i class="fa fa-caret-right" aria-hidden="true"></i> Bookmarks</a>
-                    </li>
-                    <li>
-                      <a href="#">
+                      <a href="profile.php">
                         <i class="fa fa-caret-right" aria-hidden="true"></i> My Account</a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i class="fa fa-caret-right" aria-hidden="true"></i> Your Jobs</a>
                     </li>
                   </ul>
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
               <div class="jp_footer_candidate_wrapper jp_footer_candidate_wrapper3">
                 <div class="jp_footer_candidate">
                   <h2>For Employers</h2>
                   <ul>
                     <li>
-                      <a href="#">
+                      <a href="dashboard.php">
                         <i class="fa fa-caret-right" aria-hidden="true"></i> Browse candidates</a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a href="dashboard.php">
                         <i class="fa fa-caret-right" aria-hidden="true"></i> Employer Dashboard</a>
                     </li>
                     <li>
-                      <a href="#">
-                        <i class="fa fa-caret-right" aria-hidden="true"></i> Add Job</a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i class="fa fa-caret-right" aria-hidden="true"></i> Job Page</a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i class="fa fa-caret-right" aria-hidden="true"></i> Job Packages</a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i class="fa fa-caret-right" aria-hidden="true"></i> Work Process</a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i class="fa fa-caret-right" aria-hidden="true"></i> My Account</a>
+                      <a href="publish.php">
+                        <i class="fa fa-caret-right" aria-hidden="true"></i> Add a Job</a>
                     </li>
                   </ul>
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <!-- <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
               <div class="jp_footer_candidate_wrapper jp_footer_candidate_wrapper4">
                 <div class="jp_footer_candidate">
                   <h2>Information</h2>
@@ -161,7 +129,7 @@
                   </ul>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="jp_bottom_footer_Wrapper">

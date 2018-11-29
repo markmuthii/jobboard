@@ -10,7 +10,12 @@ if (isset($_POST["usersignup"])) {
 	$phonenumber = $db->real_escape_string($_POST["phonenumber"]);
 	$username = $db->real_escape_string($_POST["username"]);
 	$password = $db->real_escape_string($_POST["password"]);
-	$role = $db->real_escape_string($_POST["role"]);
+  $role = $db->real_escape_string($_POST["role"]);
+  $resume = $_FILES["resume"];
+
+  $resume_upload_dir = "../resumes/";
+
+  $uploaded_resume = $resume_upload_dir . $resume["name"];
 
 	$check_email = $db->query("SELECT * FROM users WHERE email = '$email'");
 
@@ -41,36 +46,52 @@ if (isset($_POST["usersignup"])) {
 			exit();
 
 		}else{
+      
+      $upload_resume = move_uploaded_file($resume["tmp_name"], $uploaded_resume);
 
-			$hashPass = password_hash($password, PASSWORD_DEFAULT);
+      if(!$upload_resume){
 
-			$signup_query = "INSERT INTO users (
-                        first_name, last_name, email, phonenumber, username, password, role) 
-                      VALUES (
-                        '$firstname', '$lastname', '$email', '$phonenumber', '$username', '$hashPass', '$role')"; 
+        $res = array(
+          "Error" => true,
+          "Message" => "There was an error uploading your resume. Please register once again." 
+        );
 
-			$signup = $db->query($signup_query);
+        echo json_encode($res);
+        
+        exit();
 
-			if ($signup) {
+      }else{
 
-				$res = array(
-					"Error" => false,
-					"Message" => "Signup successful." 
-				);
+        $hashPass = password_hash($password, PASSWORD_DEFAULT);
+        $resume = $resume["name"];
+        $signup_query = "INSERT INTO users (
+                          first_name, last_name, email, phonenumber, username, password, role, resume) 
+                        VALUES (
+                          '$firstname', '$lastname', '$email', '$phonenumber', '$username', '$hashPass', '$role', '$resume')"; 
 
-				echo json_encode($res);
-				
-				exit();
-			}else{
-				$res = array(
-					"Error" => true,
-					"Message" => "Error signing you up. Please try again." 
-				);
+        $signup = $db->query($signup_query);
 
-				echo json_encode($res);
-				
-				exit();
-			}
+        if ($signup) {
+
+          $res = array(
+            "Error" => false,
+            "Message" => "Signup successful." 
+          );
+
+          echo json_encode($res);
+          
+          exit();
+        }else{
+          $res = array(
+            "Error" => true,
+            "Message" => "Error signing you up. Please try again." 
+          );
+
+          echo json_encode($res);
+          
+          exit();
+        }
+      }
 		}
 	}
 }

@@ -1,5 +1,6 @@
 <?php 
-
+error_reporting(0);
+session_start();
 include "config/global.php";
 
 ?>
@@ -48,7 +49,7 @@ include "config/global.php";
   </div>
   <!-- Top Scroll End -->
   <!-- Top Header Wrapper Start -->
-  <div class="jp_top_header_main_wrapper">
+  <!-- <div class="jp_top_header_main_wrapper">
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -115,7 +116,7 @@ include "config/global.php";
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- Top Header Wrapper End -->
   <!-- Header Wrapper Start -->
   <div class="jp_top_header_img_wrapper">
@@ -137,7 +138,7 @@ include "config/global.php";
               <div class="mainmenu">
                 <div class="gc_right_menu">
                   <ul>
-                    <li id="search_button">
+                    <!--<li id="search_button">
                       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_3" x="0px" y="0px"
                         viewBox="0 0 451 451" style="enable-background:new 0 0 451 451;" xml:space="preserve">
                         <g>
@@ -146,14 +147,14 @@ include "config/global.php";
                         </g>
                       </svg>
                     </li>
-                    <li>
+                     <li>
                       <div id="search_open" class="gc_search_box">
                         <input type="text" placeholder="Search here">
                         <button>
                           <i class="fa fa-search" aria-hidden="true"></i>
                         </button>
                       </div>
-                    </li>
+                    </li> -->
                   </ul>
                 </div>
                 <ul class="float_left">
@@ -161,14 +162,40 @@ include "config/global.php";
                     <a href="./" class="gc_main_navigation"> Home&nbsp;
                     </a>
                   </li>
-				  <li class="gc_main_navigation">
-                    <a href="login.php" class="gc_main_navigation"> Login&nbsp;
-                    </a>
-                  </li>
-				  <li class="gc_main_navigation">
-                    <a href="register.php" class="gc_main_navigation"> Signup&nbsp;
-                    </a>
-                  </li>
+                  <?php if(!isset($_SESSION["type"])): ?>
+                  <!-- Not logged in -->
+                    <li class="gc_main_navigation">
+                      <a href="login.php" class="gc_main_navigation"> Login&nbsp;
+                      </a>
+                    </li>
+                    <li class="gc_main_navigation">
+                      <a href="register.php" class="gc_main_navigation"> Signup&nbsp;
+                      </a>
+                    </li>
+                  <?php else: ?>
+                    <li class="gc_main_navigation">
+                      <a href="dashboard.php" class="gc_main_navigation"> Dashboard&nbsp;
+                      </a>
+                    </li>
+                    <?php if($_SESSION["type"] == "company"):?>
+                    <!-- Logged in company -->
+                    <!-- <li class="gc_main_navigation">
+                      <a href="dashboard.php" class="gc_main_navigation"> Dashboard&nbsp;
+                      </a>
+                    </li> -->
+                    <?php else: ?>
+                    <!-- Logged in jobseeker -->
+                    <li class="gc_main_navigation">
+                      <a href="profile.php" class="gc_main_navigation"> Profile&nbsp;
+                      </a>
+                    </li>
+
+                    <?php endif ?>
+                    <li class="gc_main_navigation">
+                      <a href="logout.php" class="gc_main_navigation"> Logout&nbsp;
+                      </a>
+                    </li>
+                  <?php endif ?>
                 </ul>
               </div>
               <!-- mainmenu end -->
@@ -221,11 +248,11 @@ include "config/global.php";
                           </h2>
                           <a href="#0" class="cd-close">Close</a>
                           <ul class="cd-dropdown-content">
-                            <li>
+                            <!-- <li>
                               <form class="cd-search">
                                 <input type="search" placeholder="Search...">
                               </form>
-                            </li>
+                            </li> -->
                             <li class="has-children">
                               <a href="#">Home</a>
 
@@ -322,6 +349,7 @@ include "config/global.php";
             </div>
           </div>
           <!-- mobile menu area end -->
+          <?php if(isset($_SESSION["type"]) && $_SESSION["type"] == "company"):?>
           <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-sm hidden-xs">
             <div class="jp_navi_right_btn_wrapper">
               <ul>
@@ -332,6 +360,7 @@ include "config/global.php";
               </ul>
             </div>
           </div>
+          <?php endif ?>
         </div>
       </div>
     </div>

@@ -41,23 +41,41 @@ function registerUser() {
     email = $("#useremail").val(),
     username = $("#userusername").val(),
     role = $("#userrole").val(),
+    resume = $("input[type=file]")[0].files[0],
     password = $("#userpassword").val();
 
-  var userData = {
-    firstname: firstname,
-    lastname: lastname,
-    phonenumber: phonenumber,
-    email: email,
-    username: username,
-    password: password,
-    role: role,
-    usersignup: true
-  };
+  // var userData = {
+  //   firstname: firstname,
+  //   lastname: lastname,
+  //   phonenumber: phonenumber,
+  //   email: email,
+  //   username: username,
+  //   password: password,
+  //   role: role,
+  //   resume: resume,
+  //   usersignup: true
+  // };
+
+  var userData = new FormData();
+      userData.append("firstname", firstname);
+      userData.append("lastname", lastname);
+      userData.append("phonenumber", phonenumber);
+      userData.append("email", email);
+      userData.append("username", username);
+      userData.append("password", password);
+      userData.append("role", role);
+      userData.append("resume", resume);
+      userData.append("usersignup", true);
+
+  console.log(userData);
 
   $.ajax({
     type: "POST",
     url: homePath + "api/register.php",
     dataType: "json",
+    cache: false,
+    processData: false,
+    contentType: false,
     data: userData,
     success: (res) => {
       console.log(res);
@@ -295,6 +313,8 @@ function editProfile() {
     useredit: true
   };
 
+  console.log(userData);
+  
   $.ajax({
     type: "POST",
     url: homePath + "api/users.php",
